@@ -19,7 +19,7 @@ jq_filter="$INPUT_JQ_FILTER"
 simple_json="$INPUT_SIMPLE_JSON"
 
 format_var_name () {
-  if [ -n "$prefix" ]
+  if [ -n "$prefix" ]; then
     echo "$1" | tr "[:lower:]" "[:upper:]"
   else
     echo "$1" | awk -v prefix="$prefix" -F. '{print prefix $NF}' | tr "[:lower:]" "[:upper:]"
